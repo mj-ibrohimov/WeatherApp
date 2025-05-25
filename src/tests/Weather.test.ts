@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { Weather, Forecast } from '../models/Weather.js';
-import type { WeatherApiResponse, ForecastApiResponse } from '../models/interfaces.js';
+import { Weather, Forecast } from '../models/Weather';
+import type { WeatherApiResponse, ForecastApiResponse } from '../models/interfaces';
 
 describe('Weather Class', () => {
   const mockWeatherData: WeatherApiResponse = {

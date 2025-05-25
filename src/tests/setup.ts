@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import { vi } from 'vitest';
 
 // Mock localStorage
@@ -29,8 +28,8 @@ Object.defineProperty(window, 'localStorage', {
 global.fetch = vi.fn();
 
 // Mock setTimeout and clearTimeout for notification service
-global.setTimeout = vi.fn((callback: () => void, delay: number) => {
+global.setTimeout = vi.fn().mockImplementation((callback: () => void, delay: number) => {
   return 1; // Return a mock timer ID
-});
+}) as any;
 
 global.clearTimeout = vi.fn(); 

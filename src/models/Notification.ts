@@ -6,11 +6,11 @@ import { Location } from './Location';
  * Implements business logic for notification conditions and matching
  */
 export class Notification {
-  private readonly _id: string;
+  private _id: string;
   private readonly _location: Location;
   private readonly _rules: NotificationRule[];
   private _isActive: boolean;
-  private readonly _createdAt: Date;
+  private _createdAt: Date;
 
   constructor(location: Location, rules: NotificationRule[]) {
     // Validate input data
@@ -197,8 +197,10 @@ export class Notification {
     const location = Location.fromData(data.location);
     const notification = new Notification(location, data.rules);
     
-    // Restore the original state
+    // Restore the original state and ID
+    notification._id = data.id;
     notification._isActive = data.isActive;
+    notification._createdAt = new Date(data.createdAt);
     
     return notification;
   }
