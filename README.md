@@ -64,10 +64,20 @@ This weather application provides users with current weather conditions, forecas
    npm install
    ```
 
-3. **Configure API Key** (Optional - default key provided for testing)
-   - The application uses OpenWeatherMap API
+3. **Configure API Key** (Recommended for production)
+   
+   **Option 1: Environment Variables (Recommended)**
+   ```bash
+   # Copy the example environment file
+   cp env.example .env
+   
+   # Edit .env and add your API key
+   VITE_OPENWEATHER_API_KEY=your_actual_api_key_here
+   ```
+   
+   **Option 2: Default Key (Testing only)**
    - Default API key is included for immediate testing
-   - For production use, replace the API key in `src/services/WeatherService.ts`
+   - ⚠️ **Warning**: Do not use the default key in production
    - Get your free API key at: https://openweathermap.org/api
 
 4. **Start development server**
@@ -164,6 +174,20 @@ src/
 - Type-safe API response handling
 - Input sanitization and validation
 - Error boundary implementations
+
+## 🔒 Security
+
+### API Key Management
+- **Environment Variables**: API keys are stored in `.env` files (not committed to Git)
+- **Fallback System**: Development fallback key for testing (should not be used in production)
+- **Type Safety**: Environment variables are properly typed with TypeScript
+- **Git Ignore**: `.env` files are excluded from version control
+
+### Best Practices
+- ✅ No hardcoded secrets in source code
+- ✅ Environment-specific configuration
+- ✅ Clear separation between development and production keys
+- ✅ Documentation for secure deployment
 
 ## 🔧 Development Guidelines
 

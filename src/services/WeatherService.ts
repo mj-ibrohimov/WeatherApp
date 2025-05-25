@@ -40,12 +40,16 @@ export class WeatherService {
   private readonly baseUrl: string;
   private readonly timeout: number;
 
-  constructor(apiKey: string = 'dd2e48a3c3d534b5f15db5d1115c0732') {
-    if (!apiKey || apiKey.trim().length === 0) {
-      throw new Error('API key is required for WeatherService');
+  constructor(apiKey?: string) {
+    // Try to get API key from environment variables first, then fallback to parameter
+    const envApiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+    const finalApiKey = apiKey || envApiKey || 'dd2e48a3c3d534b5f15db5d1115c0732';
+    
+    if (!finalApiKey || finalApiKey.trim().length === 0) {
+      throw new Error('API key is required for WeatherService. Please set VITE_OPENWEATHER_API_KEY environment variable.');
     }
     
-    this.apiKey = apiKey.trim();
+    this.apiKey = finalApiKey.trim();
     this.baseUrl = 'https://api.openweathermap.org/data/2.5';
     this.timeout = 10000; // 10 seconds timeout
   }
