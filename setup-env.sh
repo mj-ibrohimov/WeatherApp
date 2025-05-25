@@ -36,4 +36,4 @@ echo "1. Edit the .env file and replace 'your_openweather_api_key_here' with you
 echo "2. Get a free API key at: https://openweathermap.org/api"
 echo "3. Run 'npm run dev' to start the development server"
 echo ""
-echo "🔒 Security note: The .env file is already in .gitignore and won't be committed to Git" 
+echo "🔒 Security note: The .env file is already in .gitignore and won't be committed to Git"
