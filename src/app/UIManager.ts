@@ -140,52 +140,78 @@ export class UIManager {
   }
 
   /**
-   * Render current weather
+   * Render current weather with modern gradient design (compact version)
    */
   private renderCurrentWeather(weather: Weather, location: Location): void {
     this.currentWeatherContainer.innerHTML = `
-      <div class="flex items-center justify-between mb-6">
-        <div>
-          <h1 class="text-3xl font-bold text-gray-800">${location.getFullName()}</h1>
-          <p class="text-gray-600">${weather.getFormattedDate()}</p>
+      <!-- Main Weather Card with Gradient Background -->
+      <div class="relative bg-gradient-to-br from-yellow-400 via-orange-400 to-orange-500 rounded-3xl p-6 text-white mb-4 overflow-hidden">
+        <!-- Background elements for visual appeal -->
+        <div class="absolute top-2 right-2 opacity-30">
+          <div class="w-24 h-24 bg-white bg-opacity-20 rounded-full"></div>
         </div>
-        <button id="add-to-favorites" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
-          ⭐ Add to Favorites
-        </button>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="flex items-center">
-          <img src="${weather.getIconUrl()}" alt="${weather.description}" class="w-20 h-20 mr-4">
-          <div>
-            <div class="text-5xl font-bold text-gray-800">${Math.round(weather.temperature)}°C</div>
-            <div class="text-gray-600 capitalize">${weather.description}</div>
-            <div class="text-sm text-gray-500">Feels like ${Math.round(weather.feelsLike)}°C</div>
-          </div>
+        <div class="absolute bottom-0 left-0 opacity-20">
+          <div class="w-32 h-32 bg-white bg-opacity-10 rounded-full -mb-16 -ml-16"></div>
         </div>
         
-        <div class="grid grid-cols-2 gap-4 text-sm">
-          <div class="bg-gray-50 p-3 rounded-lg">
-            <div class="text-gray-500">Humidity</div>
-            <div class="text-xl font-semibold">${weather.humidity}%</div>
+        <!-- Main Content -->
+        <div class="relative z-10">
+          <!-- Header with location and favorite heart emoji -->
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h1 class="text-2xl font-bold mb-1">${location.name}, ${location.country}</h1>
+              <p class="text-white text-opacity-90 text-sm">${weather.getFormattedDate()}</p>
+            </div>
+            <button id="add-to-favorites" class="text-2xl hover:scale-110 transition-transform duration-200 cursor-pointer">❤️</button>
           </div>
-          <div class="bg-gray-50 p-3 rounded-lg">
-            <div class="text-gray-500">Wind Speed</div>
-            <div class="text-xl font-semibold">${weather.windSpeed} m/s</div>
+          
+          <!-- Main Temperature Display -->
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <img src="${weather.getIconUrl()}" alt="${weather.description}" class="w-16 h-16 mr-4 drop-shadow-lg">
+              <div>
+                <div class="text-4xl font-bold mb-1">${Math.round(weather.temperature)}°C</div>
+                <div class="text-lg text-white text-opacity-90 capitalize">${weather.description}</div>
+              </div>
+            </div>
+            
+            <div class="text-right text-sm">
+              <div class="text-white text-opacity-90 mb-1">🌡️ Feels like ${Math.round(weather.feelsLike)}°C</div>
+              <div class="text-white text-opacity-90">H: ${Math.round(weather.maxTemperature)}° | L: ${Math.round(weather.minTemperature)}°</div>
+            </div>
           </div>
-          <div class="bg-gray-50 p-3 rounded-lg">
-            <div class="text-gray-500">Pressure</div>
-            <div class="text-xl font-semibold">${weather.pressure} hPa</div>
-          </div>
-          <div class="bg-gray-50 p-3 rounded-lg">
-            <div class="text-gray-500">Wind Direction</div>
-            <div class="text-xl font-semibold">${weather.getWindDirection()}</div>
-          </div>
+        </div>
+      </div>
+      
+      <!-- Weather Details Grid (Compact) -->
+      <div class="grid grid-cols-4 gap-3 mb-4">
+        <div class="bg-white rounded-xl p-3 text-center shadow-sm border border-gray-100">
+          <div class="text-blue-500 text-xl mb-1">💧</div>
+          <div class="text-gray-500 text-xs mb-1">Humidity</div>
+          <div class="text-lg font-bold text-gray-800">${weather.humidity}%</div>
+        </div>
+        
+        <div class="bg-white rounded-xl p-3 text-center shadow-sm border border-gray-100">
+          <div class="text-blue-500 text-xl mb-1">💨</div>
+          <div class="text-gray-500 text-xs mb-1">Wind</div>
+          <div class="text-lg font-bold text-gray-800">${weather.windSpeed} m/s</div>
+        </div>
+        
+        <div class="bg-white rounded-xl p-3 text-center shadow-sm border border-gray-100">
+          <div class="text-orange-500 text-xl mb-1">🌅</div>
+          <div class="text-gray-500 text-xs mb-1">Sunrise</div>
+          <div class="text-lg font-bold text-gray-800">${weather.getFormattedSunrise()}</div>
+        </div>
+        
+        <div class="bg-white rounded-xl p-3 text-center shadow-sm border border-gray-100">
+          <div class="text-purple-500 text-xl mb-1">🌇</div>
+          <div class="text-gray-500 text-xs mb-1">Sunset</div>
+          <div class="text-lg font-bold text-gray-800">${weather.getFormattedSunset()}</div>
         </div>
       </div>
     `;
 
-    // Add event listener for favorites button
+    // Add event listener for favorites button (heart emoji)
     const favButton = document.getElementById('add-to-favorites');
     if (favButton && this.addToFavoritesCallback) {
       favButton.addEventListener('click', this.addToFavoritesCallback);
