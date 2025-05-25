@@ -57,7 +57,7 @@ This weather application provides users with current weather conditions, forecas
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/mj-ibrohimov/WeatherApp.git
    cd weather-application
    ```
 
