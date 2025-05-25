@@ -1,7 +1,9 @@
 # Weather Application - TypeScript Course Final Project
+https://weather-info-itpu.netlify.app/
 
 A comprehensive weather application built with **vanilla TypeScript** that demonstrates advanced TypeScript concepts, object-oriented programming principles, and modern web development practices. This project meets all academic requirements for a high-quality TypeScript course final project.
 
+![Preview Image](preview.png)
 ## 🎯 Project Overview
 
 This weather application provides users with current weather conditions, forecasts, and personalized weather notifications. Built entirely in vanilla TypeScript without frameworks (per course requirements), it showcases proper software architecture, type safety, and comprehensive testing.
