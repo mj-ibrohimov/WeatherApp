@@ -1,5 +1,5 @@
-import { Notification } from '../models/Notification.js';
-import { Weather } from '../models/Weather.js';
+import { Notification } from '../models/Notification';
+import { Weather } from '../models/Weather';
 
 /**
  * NotificationManager class for handling weather notifications

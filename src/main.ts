@@ -1,5 +1,5 @@
 import './style.css';
-import { WeatherApp } from './app/WeatherApp.js';
+import { WeatherApp } from './app/WeatherApp';
 
 /**
  * Application entry point

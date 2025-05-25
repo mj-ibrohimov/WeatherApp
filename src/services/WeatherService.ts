@@ -1,5 +1,5 @@
-import type { WeatherApiResponse, ForecastApiResponse } from '../models/interfaces.js';
-import { Weather, Forecast } from '../models/Weather.js';
+import type { WeatherApiResponse, ForecastApiResponse } from '../models/interfaces';
+import { Weather, Forecast } from '../models/Weather';
 
 /**
  * Custom error classes for better error handling

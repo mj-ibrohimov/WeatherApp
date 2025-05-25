@@ -1,11 +1,11 @@
-import { Weather, Forecast } from '../models/Weather.js';
-import { Location } from '../models/Location.js';
-import { Notification } from '../models/Notification.js';
-import type { NotificationRule } from '../models/interfaces.js';
-import weatherService, { WeatherResult, ForecastResult } from '../services/WeatherService.js';
-import storageService from '../services/StorageService.js';
-import { UIManager } from './UIManager.js';
-import { NotificationManager } from './NotificationManager.js';
+import { Weather, Forecast } from '../models/Weather';
+import { Location } from '../models/Location';
+import { Notification } from '../models/Notification';
+import type { NotificationRule } from '../models/interfaces';
+import weatherService, { WeatherResult, ForecastResult } from '../services/WeatherService';
+import storageService from '../services/StorageService';
+import { UIManager } from './UIManager';
+import { NotificationManager } from './NotificationManager';
 
 /**
  * Main WeatherApp class that coordinates all application functionality

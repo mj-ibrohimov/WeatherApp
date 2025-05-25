@@ -1,4 +1,4 @@
-import type { LocationData, WeatherApiResponse } from './interfaces.js';
+import type { LocationData, WeatherApiResponse } from './interfaces';
 
 /**
  * Location class representing a geographical location

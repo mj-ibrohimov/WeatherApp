@@ -1,4 +1,4 @@
-import type { WeatherApiResponse, ForecastApiResponse, ForecastItemData } from './interfaces.js';
+import type { WeatherApiResponse, ForecastApiResponse, ForecastItemData } from './interfaces';
 
 /**
  * Weather class representing current weather conditions

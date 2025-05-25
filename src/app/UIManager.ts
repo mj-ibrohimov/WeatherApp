@@ -1,7 +1,7 @@
-import { Weather, Forecast } from '../models/Weather.js';
-import { Location } from '../models/Location.js';
-import { Notification } from '../models/Notification.js';
-import type { NotificationRule, NotificationCondition } from '../models/interfaces.js';
+import { Weather, Forecast } from '../models/Weather';
+import { Location } from '../models/Location';
+import { Notification } from '../models/Notification';
+import type { NotificationRule, NotificationCondition } from '../models/interfaces';
 
 /**
  * UIManager class for handling all DOM manipulation and UI interactions

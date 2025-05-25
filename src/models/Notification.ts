@@ -1,5 +1,5 @@
-import type { NotificationRule, NotificationCondition, NotificationData, WeatherApiResponse } from './interfaces.js';
-import { Location } from './Location.js';
+import type { NotificationRule, NotificationCondition, NotificationData, WeatherApiResponse } from './interfaces';
+import { Location } from './Location';
 
 /**
  * Notification class for managing weather alerts

@@ -1,6 +1,6 @@
-import type { LocationData, NotificationData, NotificationRule } from '../models/interfaces.js';
-import { Location } from '../models/Location.js';
-import { Notification } from '../models/Notification.js';
+import type { LocationData, NotificationData, NotificationRule } from '../models/interfaces';
+import { Location } from '../models/Location';
+import { Notification } from '../models/Notification';
 
 /**
  * StorageService class for managing local storage operations
