@@ -180,14 +180,10 @@ export class Forecast {
     const dailyForecasts: ForecastItemData[] = [];
     const processedDates = new Set<string>();
 
-    console.log('Total forecast items:', this._items.length); // Debug log
-
     for (const item of this._items) {
       const date = new Date(item.dt * 1000);
       const dateString = date.toDateString();
       const hour = date.getHours();
-
-      console.log(`Forecast item: ${dateString} at ${hour}:00`); // Debug log
 
       // Skip the first day if it's already late in the day (past 18:00)
       if (dailyForecasts.length === 0) {
@@ -203,14 +199,12 @@ export class Forecast {
         if (hour >= 9 && hour <= 18) {
           dailyForecasts.push(item);
           processedDates.add(dateString);
-          console.log(`Added forecast for ${dateString} at ${hour}:00`); // Debug log
         } else if (processedDates.size === 0 || 
                    !Array.from(processedDates).some(processedDate => 
                      new Date(processedDate).toDateString() === dateString)) {
           // If no better time is available, take any time for this date
           dailyForecasts.push(item);
           processedDates.add(dateString);
-          console.log(`Added fallback forecast for ${dateString} at ${hour}:00`); // Debug log
         }
       }
 
@@ -218,7 +212,6 @@ export class Forecast {
       if (dailyForecasts.length >= 5) break;
     }
 
-    console.log('Final daily forecasts:', dailyForecasts.length); // Debug log
     return dailyForecasts;
   }
 
