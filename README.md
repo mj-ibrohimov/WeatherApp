@@ -1,7 +1,7 @@
 # Weather Application - TypeScript Course Final Project
 https://weather-info-itpu.netlify.app/
 
-A comprehensive weather application built with **vanilla TypeScript** that demonstrates advanced TypeScript concepts, object-oriented programming principles, and modern web development practices. This project meets all academic requirements for a high-quality TypeScript course final project.
+A comprehensive weather application built with **vanilla TypeScript** that demonstrates advanced TypeScript concepts, object-oriented programming principles, and modern web development practices. 
 
 ![Preview Image](preview.png)
 ## 🎯 Project Overview
@@ -182,22 +182,6 @@ src/
 - Local storage optimization
 - Minimal bundle size (no frameworks)
 
-## 📈 Academic Evaluation Criteria Compliance
-
-| Criteria | Status | Points | Implementation |
-|----------|--------|---------|----------------|
-| TypeScript Concepts | ✅ Complete | 18/18 | Classes, interfaces, types, modules, generics |
-| NPM Dependencies | ✅ Complete | 5/5 | All dependencies in package.json |
-| README Documentation | ✅ Complete | 5/5 | Comprehensive setup instructions |
-| Coding Standards | ✅ Complete | 5/5 | ESLint, error handling, best practices |
-| Code Organization | ✅ Complete | 5/5 | Clean architecture, SRP compliance |
-| Feature Implementation | ✅ 99% | 25/25 | All required features implemented |
-| ESLint Configuration | ✅ Complete | 4/4 | TypeScript/Recommended rules |
-| Test Script | ✅ Complete | 5/5 | Vitest configuration |
-| Test Coverage | ✅ 85%+ | 8/8 | Comprehensive unit tests |
-
-**Total Score: 80/80 points**
-
 ## 🏆 Advanced Features
 
 ### Beyond Requirements
@@ -207,20 +191,13 @@ src/
 - **Performance Optimization**: Efficient rendering and API usage
 - **Error Recovery**: Graceful degradation and retry mechanisms
 
-## 🤝 Contributing
-
-This is an academic project demonstrating TypeScript proficiency. For evaluation purposes, please refer to the comprehensive test suite and documentation.
-
 ## 📄 License
 
 MIT License - Academic Project
 
 ---
 
-**Developed by:** [Student Name]  
-**Course:** Advanced TypeScript Development  
-**Institution:** [University/Institution Name]  
-**Submission Date:** [Date]
+**Developed by:** Muhammadjon Ibrohimov  
 
 **Node.js Version Used:** v18.17.0  
 **TypeScript Version:** 5.5.3  
