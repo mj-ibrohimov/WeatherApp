@@ -26,9 +26,9 @@ export class WeatherApp {
   /**
    * Initialize the application
    */
-  public initialize(): void {
+  public async initialize(): Promise<void> {
     this.setupEventListeners();
-    this.loadInitialData();
+    await this.loadInitialData();
     this.notificationManager.startChecking();
     
     console.log('Weather Application initialized successfully');
@@ -102,9 +102,9 @@ export class WeatherApp {
   }
 
   /**
-   * Load initial data (favorites and notifications)
+   * Load initial data (favorites and notifications) and show favorite locations weather
    */
-  private loadInitialData(): void {
+  private async loadInitialData(): Promise<void> {
     try {
       const favorites = storageService.getFavorites();
       const notifications = storageService.getNotifications();
@@ -114,6 +114,16 @@ export class WeatherApp {
       
       // Load notifications into the notification manager
       this.notificationManager.loadNotifications(notifications);
+
+      // If there are favorites, load weather data for them and display the first one
+      if (favorites.length > 0) {
+        this.uiManager.hideWelcome(); // Hide welcome message
+        await this.uiManager.loadFavoritesWeatherData(favorites);
+        
+        // Auto-select the first favorite location
+        const firstFavorite = favorites[0];
+        await this.selectLocation(firstFavorite);
+      }
     } catch (error) {
       console.error('Error loading initial data:', error);
       this.uiManager.showError('Failed to load saved data');
